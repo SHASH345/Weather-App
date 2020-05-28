@@ -15,13 +15,14 @@ const address = process.argv[2];
 //   });
 // }
 
-// if (!address) console.log("Please input your address");
-// else {
-geoCode("chapra", (error, { locationKeyValue, locationPlace }) => {
-  if (error) console.log(error);
-  forecast(locationKeyValue, (error, forecastData) => {
-    if (error) console.log("ERROR", error);
-    console.log(locationPlace);
-    console.log(forecastData);
+if (!address) console.log("Please input your address");
+else {
+  geoCode(address, (error, { locationKeyValue, locationPlace }) => {
+    if (error) console.log(error);
+    forecast(locationKeyValue, (error, forecastData) => {
+      if (error) console.log("ERROR", error);
+      console.log(locationPlace);
+      console.log(forecastData);
+    });
   });
-});
+}
